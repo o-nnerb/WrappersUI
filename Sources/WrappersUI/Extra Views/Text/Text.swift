@@ -120,7 +120,7 @@ extension Text {
         paragraph(\.lineSpacing, to: lineSpacing)
     }
 
-    func multilineTextAlignment(_ alignment: NSTextAlignment) -> Text<LabelAttributes> {
+    public func multilineTextAlignment(_ alignment: NSTextAlignment) -> Text<LabelAttributes> {
         paragraph(\.alignment, to: alignment)
     }
 }

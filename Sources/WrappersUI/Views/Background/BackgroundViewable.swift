@@ -25,6 +25,13 @@ public extension BackgroundViewable {
             priority: priority
         )
     }
+
+    func background(_ color: UIColor) -> Wrappers<Self, Self>.Background<UIView> {
+        background(
+            UIView()
+                .setting(\.backgroundColor, to: color)
+        )
+    }
 }
 
 public extension BackgroundViewable where Self: WrapperViewable {
@@ -40,6 +47,13 @@ public extension BackgroundViewable where Self: WrapperViewable {
             background: background,
             edges: alignment,
             priority: priority
+        )
+    }
+
+    func background(_ color: UIColor) -> Wrappers<OriginalView, Self>.Background<UIView> {
+        background(
+            UIView()
+                .setting(\.backgroundColor, to: color)
         )
     }
 }

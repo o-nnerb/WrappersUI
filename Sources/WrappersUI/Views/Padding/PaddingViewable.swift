@@ -13,50 +13,62 @@ public protocol PaddingViewable: UIView {}
 public extension PaddingViewable {
 
     func padding(
-        _ edgesInsets: UIEdgeInsets
+        _ insets: EdgeInsets
     ) -> Wrappers<Self, Self>.Padding {
         .init(
             original: self,
             wrapped: self,
-            edges: edgesInsets
+            edges: insets
         )
     }
 
     func padding(
         _ edges: Edge.Set = .all,
-        _ constant: CGFloat
+        _ length: CGFloat? = nil
     ) -> Wrappers<Self, Self>.Padding {
-        padding(.init(
-            top: edges.contains(.top) ? constant : .zero,
-            left: edges.contains(.leading) ? constant : .zero,
-            bottom: edges.contains(.bottom) ? constant : .zero,
-            right: edges.contains(.trailing) ? constant : .zero
+        let length = length ?? 16
+
+        return padding(.init(
+            top: edges.contains(.top) ? length : .zero,
+            leading: edges.contains(.leading) ? length : .zero,
+            bottom: edges.contains(.bottom) ? length : .zero,
+            trailing: edges.contains(.trailing) ? length : .zero
         ))
+    }
+
+    func padding(_ length: CGFloat) -> Wrappers<Self, Self>.Padding {
+        padding(.all, length)
     }
 }
 
 public extension PaddingViewable where Self: WrapperViewable {
 
     func padding(
-        _ edgesInsets: UIEdgeInsets
+        _ insets: EdgeInsets
     ) -> Wrappers<OriginalView, Self>.Padding {
         .init(
             original: originalView,
             wrapped: self,
-            edges: edgesInsets
+            edges: insets
         )
     }
 
     func padding(
         _ edges: Edge.Set = .all,
-        _ constant: CGFloat
+        _ length: CGFloat? = nil
     ) -> Wrappers<OriginalView, Self>.Padding {
-        padding(.init(
-            top: edges.contains(.top) ? constant : .zero,
-            left: edges.contains(.leading) ? constant : .zero,
-            bottom: edges.contains(.bottom) ? constant : .zero,
-            right: edges.contains(.trailing) ? constant : .zero
+        let length = length ?? 16
+
+        return padding(.init(
+            top: edges.contains(.top) ? length : .zero,
+            leading: edges.contains(.leading) ? length : .zero,
+            bottom: edges.contains(.bottom) ? length : .zero,
+            trailing: edges.contains(.trailing) ? length : .zero
         ))
+    }
+
+    func padding(_ length: CGFloat) -> Wrappers<OriginalView, Self>.Padding {
+        padding(.all, length)
     }
 }
 
