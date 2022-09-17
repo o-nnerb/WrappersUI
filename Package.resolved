@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "anchorkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/brennobemoura/AnchorKit",
+      "state" : {
+        "revision" : "416d1fb5dedb01deacef4e58546d3fe80948a732",
+        "version" : "0.0.2"
+      }
+    }
+  ],
+  "version" : 2
+}
