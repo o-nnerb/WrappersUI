@@ -33,9 +33,9 @@ extension Wrappers.Padding: ViewCodable {
     func setupConstraints() {
         wrappedView.anchor {
             $0.top.equal(constant: edges.top)
-            $0.bottom.equal(constant: edges.bottom)
+            $0.bottom.equal(constant: -edges.bottom)
             $0.leading.equal(constant: edges.leading)
-            $0.trailing.equal(constant: edges.trailing)
+            $0.trailing.equal(constant: -edges.trailing)
         }
     }
 }
